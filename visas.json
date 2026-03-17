@@ -1,20 +1,16 @@
 [
-  {
-    "passport": "A12345678",
-    "visa": "SRB12345",
-    "name": "John Smith",
-    "status": "VALID"
-  },
-  {
-    "passport": "B98765432",
-    "visa": "SRB67890",
-    "name": "Maria Ivanova",
-    "status": "VALID"
-  },
-  {
-    "passport": "C11223344",
-    "visa": "SRB99999",
-    "name": "David Chen",
-    "status": "EXPIRED"
-  }
+{
+"visa":"SRB10001",
+"name":"John Smith",
+"passport":"A1234567",
+"status":"VALID",
+"expiry":"2026-12-20"
+},
+{
+"visa":"SRB10002",
+"name":"Maria Ivanova",
+"passport":"B9876543",
+"status":"VALID",
+"expiry":"2026-08-10"
+}
 ]
