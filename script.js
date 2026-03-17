@@ -1,39 +1,38 @@
 async function checkVisa(){
 
-const passport=document.getElementById("passport").value.trim();
-const visa=document.getElementById("visa").value.trim();
+const visaNumber=document.getElementById("visaInput").value.trim();
 const result=document.getElementById("result");
 
-if(!passport || !visa){
-
-result.innerHTML="⚠️ Please enter passport and visa number";
+if(!visaNumber){
+result.innerHTML="Enter visa reference number";
 return;
-
 }
 
 const response=await fetch("visas.json");
-const data=await response.json();
+const visas=await response.json();
 
-const record=data.find(v => v.passport===passport && v.visa===visa);
+const record=visas.find(v=>v.visa===visaNumber);
 
 if(record){
 
-result.innerHTML=`
-✅ Visa Found <br><br>
-Name: ${record.name}<br>
-Passport: ${record.passport}<br>
-Visa: ${record.visa}<br>
+result.innerHTML=
+`
+✅ Visa Valid
+
+Name: ${record.name}
+Passport: ${record.passport}
 Status: ${record.status}
+Expiry: ${record.expiry}
 `;
 
-result.className="result valid";
+result.style.color="green";
 
 }
 
 else{
 
-result.innerHTML="❌ No record found";
-result.className="result invalid";
+result.innerHTML="❌ Visa not found";
+result.style.color="red";
 
 }
 
